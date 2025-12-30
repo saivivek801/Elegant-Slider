@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+      }
+
+      .slider-container {
+        height: 100vh;
+        height: 100dvh;
+        overflow: hidden;
+        position: relative;
+        background-color: #f5f5f5;
+      }
+
+      .slider-wrapper {
+        display: flex;
+        flex-direction: column;
+        will-change: transform;
+        transition: none;
+      }
+
+      .gallery-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        width: 100%;
+        padding: 20px;
+      }
+
+      .gallery-set {
+        margin-bottom: 40px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        grid-auto-rows: minmax(200px, auto);
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+        z-index: 10;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Desktop - Uneven grid layout (3 columns) - Creating varied sizes */
+      .gallery-item:nth-child(1) {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+
+      .gallery-item:nth-child(2) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(3) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(4) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(5) {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+
+      .gallery-item:nth-child(6) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(7) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(8) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(9) {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+
+      .gallery-item:nth-child(10) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item:nth-child(11) {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      /* Tablet and Mobile - Uneven grid layout (2 columns) */
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          grid-auto-rows: 150px;
+        }
+
+        .gallery-item:nth-child(1) {
+          grid-column: span 1;
+          grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(2) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(3) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(4) {
+          grid-column: span 1;
+          grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(5) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(6) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(7) {
+          grid-column: span 1;
+          grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(8) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(9) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .gallery-item:nth-child(10) {
+          grid-column: span 1;
+          grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(11) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider-wrapper" id="sliderWrapper">
+        <div class="gallery-container" id="galleryContent">
+      <!-- Set 1 -->
+      <div class="gallery-set">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5Njg4ODZj/pn/1600/radiant-beauty-portrait-smile.jpg.webp"
+              alt="Image 1"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE3NzE4NjA1/pn/1440/striking-beauty-portrait-dramatic-lighting.webp"
+              alt="Image 2"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE5NzM2ZjBj/pn/1440/golden-hour-beauty-portrait.jpg.webp"
+              alt="Image 3"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzAwZjg2/pn/1600/radiant-beauty-portrait-soft-lighting.jpg.webp"
+              alt="Image 4"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTg1MTEw/pn/1800/elegant-silhouette-woman-statement-earrings.webp"
+              alt="Image 5"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NjU4ZjFm/pn/1600/golden-hour-emotional-portrait.jpg.webp"
+              alt="Image 6"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5ODFjODA1/pn/1800/elegant-monochrome-fashion-portrait.jpg.webp"
+              alt="Image 7"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzkxOGYw/pn/1800/fashion-editorial-high-contrast-portrait.jpg.webp"
+              alt="Image 8"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzY4ZjE1/pn/1800/ethereal-black-white-portrait-texture.jpg.webp"
+              alt="Image 9"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzRmY2Mw/pn/1800/dazzling-fashion-shoot-laser-lights-model.webp"
+              alt="Image 10"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTJjY2Y4/pn/1800/Analogous_Cool.webp"
+              alt="Image 11"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Set 2 -->
+      <div class="gallery-set">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTc4MDAw/pn/1800/striking-red-fashion-portrait-bold-makeup.webp"
+              alt="Image 1"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5Njk1ODYx/pn/1600/celebrating-natural-beauty-three-women-smiles.webp"
+              alt="Image 2"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf-wm.slickpic.com/hr/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NjE4YzVm/pn/1800/ethereal-blue-fashion-portrait.jpg.webp"
+              alt="Image 3"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5Njc2ODg4/pn/1600/refreshing-beauty-close-up-woman-water.jpg.webp"
+              alt="Image 4"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5ODA4NWYx/pn/1800/elegant-fashion-portrait-model-wide-brimmed-hat.webp"
+              alt="Image 5"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE5NDc1NjYw/pn/1440/radiant-beauty-terracotta-portrait.jpg.webp"
+              alt="Image 6"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NjMxMDA4/pn/1600/ethereal-portrait-woman-red-velvet.jpg.webp"
+              alt="Image 7"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzIxZjFm/pn/1800/elegant-model-red-dress-abstract-art.webp"
+              alt="Image 8"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE4NjE4NjZj/pn/1440/elegant-black-and-white-portrait-vintage-hairstyle.webp"
+              alt="Image 9"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTQwOGYw/pn/1800/vibrant-color-profile-portrait.jpg.webp"
+              alt="Image 10"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5Nzc4NTA2/pn/1800/vintage-glamour-dramatic-fashion-pose.jpg.webp"
+              alt="Image 11"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Set 3 -->
+      <div class="gallery-set">
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE5MjFjZjUw/pn/1440/dramatic-red-fashion-portrait.jpg.webp"
+              alt="Image 1"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE3NDhmMDE2/pn/1440/dramatic-diamond-jewelry-portrait.jpg.webp"
+              alt="Image 2"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NjQ4MDYw/pn/1600/radiant-beauty-portrait-natural-curly-hair.webp"
+              alt="Image 3"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE4NTlmY2Zm/pn/1440/artistic-close-up-model-textured-makeup.webp"
+              alt="Image 4"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211221/MTgyOTE4NDZjMThm/pn/1440/elegant-portrait-woman-graceful-poses.webp"
+              alt="Image 5"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NjAwMWY4/pn/1800/elegant-beauty-portrait-floral-accents.webp"
+              alt="Image 6"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTE1ODhm/pn/1800/artistic-makeup-portrait-metallic-face-art.webp"
+              alt="Image 7"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzVjYzY2/pn/1800/elegant-portrait-model-floral-black-dress.jpg.webp"
+              alt="Image 8"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTk4ODhm/pn/1800/dramatic-black-white-portrait-elegance.jpg.webp"
+              alt="Image 9"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NzM4ODE1/pn/1800/neon-futuristic-fashion-photography.jpg.webp"
+              alt="Image 10"
+            />
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://stored-cf.slickpic.com/Mjg1ODI1MDZmMThjNTg,/20211227/MTgzMDE5NTY4ODA1/pn/1800/bold-red-lipstick-beauty-photography.jpg.webp"
+              alt="Image 11"
+            />
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const $sliderWrapper = $("#sliderWrapper");
+        const $galleryContent = $("#galleryContent");
+        let scrollSpeed = 0.5; // Adjust speed (pixels per frame)
+        let currentPosition = 0;
+        let contentHeight = 0;
+        let animationId = null;
+
+        // Wait for all images to load
+        function waitForImages(callback) {
+          const images = $galleryContent.find("img");
+          let loadedCount = 0;
+          const totalImages = images.length;
+
+          if (totalImages === 0) {
+            callback();
+            return;
+          }
+
+          images.on("load error", function () {
+            loadedCount++;
+            if (loadedCount === totalImages) {
+              callback();
+            }
+          });
+
+          // Trigger load for already loaded images
+          images.each(function () {
+            if (this.complete) {
+              $(this).trigger("load");
+            }
+          });
+        }
+
+        // Clone the content for seamless infinite scroll
+        function setupInfiniteScroll() {
+          // Remove existing duplicate if any
+          $("#galleryContentDuplicate").remove();
+
+          // Get the original content height
+          contentHeight = $galleryContent.outerHeight(true);
+
+          // Clone the content and append it
+          const $duplicate = $galleryContent.clone();
+          $duplicate.attr("id", "galleryContentDuplicate");
+          $sliderWrapper.append($duplicate);
+        }
+
+        // Infinite scroll animation
+        function animateScroll() {
+          currentPosition -= scrollSpeed;
+
+          // Reset position when first content is completely scrolled
+          if (Math.abs(currentPosition) >= contentHeight) {
+            currentPosition = 0;
+          }
+
+          $sliderWrapper.css("transform", "translateY(" + currentPosition + "px)");
+
+          animationId = requestAnimationFrame(animateScroll);
+        }
+
+        // Initialize after images load
+        waitForImages(function () {
+          setupInfiniteScroll();
+          // Start animation
+          animateScroll();
+        });
+
+        // Handle window resize
+        $(window).on("resize", function () {
+          if (animationId) {
+            cancelAnimationFrame(animationId);
+          }
+          // Reset position
+          currentPosition = 0;
+          $sliderWrapper.css("transform", "translateY(0px)");
+          // Recalculate and setup
+          waitForImages(function () {
+            setupInfiniteScroll();
+            animateScroll();
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
